@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+#parse eml 
+cd /500/youtube/emls
+rm *.eml
+exit 0

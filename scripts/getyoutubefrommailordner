@@ -1,0 +1,15 @@
+#!/usr/bin/env sh
+cat $(find ~/.thunderbird/ -name $1) | tr -d "=\r\n" | egrep -o 'watch\?v([a-zA-Z0-9_-]*)&' | sed 's/watch?v3D//' | sed 's/&$//'
+exit 0
+
+#cat ~/.thunderbird/i3ip82sy.default/ImapMail/imap.geiseler.org/INBOX.sbd/Youtube.sbd/SemperVideo.sbd/Kali | grep "watch?v=" 
+#cat $(find ~/.thunderbird/ -name $1*) | grep "watch?v=3D"*"&feature" >> $1.txt
+#cat $(find ~/.thunderbird/ -name Youtube*) | grep "http://www.youtube.de/watch?v=" >> Youtube.txt
+#cat $(find ~/.thunderbird/ -name YouTube*) | grep <a href=3D*>  --gibt fehler wegen newline
+#youtube-dl --default-search "ytsearch" --batch-file ../kali.txt 
+#cat $(find ~/.thunderbird/ -name YouTube*) | tr -d "\n" | tr -d "\n" | grep "watch"
+#grep "watch" $(find ~/.thunderbird/ -name YouTube*)
+#cat $(find ~/.thunderbird/ -name Kali*) | tr -d "\r\n" | tr -d "=" | grep -P '(?<=watch?v)(*)(?=&)'
+#cat $(find ~/.thunderbird/ -name Kali*) | tr -d "\r\n" | tr -d "=" | egrep -o 'watch\?v([a-zA-Z0-9-]*)&' | sed 's/watch?v3D//' | sed 's/&$//'
+
+

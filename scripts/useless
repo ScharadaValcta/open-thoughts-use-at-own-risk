@@ -1,0 +1,9 @@
+#!/bin/bash
+if test -z $(echo "$1")
+then 
+    1 = "1"
+fi
+while (i < $1) ; do
+    dd if=/dev/urandom of="$i".file count=8;
+    i = $i +1
+done 

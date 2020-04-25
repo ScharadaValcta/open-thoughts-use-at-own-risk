@@ -1,0 +1,62 @@
+#!/bin/bash
+# discord &
+thunderbird &
+spotify &
+signal-desktop &
+telegram-desktop &
+
+#wmctrl -l | grep Telegram
+while [ "$( wmctrl -l | grep Telegram )" == "" ]
+do
+sleep 0.1
+done
+
+#wmctrl -l | grep Signal
+while [ "$( wmctrl -l | grep Signal )" == "" ]
+do
+sleep 0.1
+done
+
+# wmctrl -l | grep Spotify
+while ["$( wmctrl -l | grep Spotify )" == "" ]
+do
+sleep 0.1
+done
+
+# wmctrl -l | grep Thunderbird
+while [ "$( wmctrl -l | grep Thunderbird )" == "" ]
+do
+sleep 0.1
+done
+
+wmctrl -r thunderbird -t 4
+wmctrl -r Signal -t 8
+wmctrl -r Telegram -t 8
+# wmctrl -r Discord -t 3
+wmctrl -r spotify -t 9
+
+# wmctrl -l | grep Discord
+# while ! [ "$( wmctrl -l | grep "Discord Updater" )" == "" ]
+# do
+# sleep 0.1
+# done
+# wmctrl -r Discord -t 3
+# 
+# while [ "$( wmctrl -l | grep Discord )" == "" ]
+# do
+# sleep 0.1
+# done
+# 
+# wmctrl -r Discord -t 3
+wmctrl -s 0
+wmctrl -r spotify -t 9
+#wmctrl -l | grep "Passwort eingeben"
+#I=1
+#while [ "$( wmctrl -l | grep "Passwort eingeben" )" == "" ] || [ $I=1000 ]
+#do
+#sleep 0.1
+#I=$I+1
+#done
+#wmctrl -r "Passwort eingeben" -t 1
+
+exit 0

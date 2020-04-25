@@ -1,0 +1,23 @@
+#!/bin/bash
+WEBSITE = $1
+RUN = true
+cd ~/scripts/web-check
+wget $WEBSITE
+OLDHASH = ${md5sum *}
+while $RUN
+do
+sleep 100
+cd ~/scripts/web-check
+wget $WEBSITE
+HASH = md5sum *
+if $OLDHASH != $HASH
+then
+	RUN = false
+fi
+cvlc ~/nice.mp3 ~/nice.mp3 ~/nice.mp3 ~/nice.mp3
+done
+
+
+#for item in "$@"
+#do
+#done

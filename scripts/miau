@@ -1,0 +1,8 @@
+#!/bin/bash
+while true 
+do  
+   echo "MIAU"
+   oneko &
+done
+
+exit 0

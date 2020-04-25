@@ -1,0 +1,18 @@
+#!/usr/bin/python3
+import sys
+
+lines = []
+lines1 = []
+lines2 = set()
+with open(sys.argv[1]) as f:
+	lines = f.readlines()
+
+with open(sys.argv[1]+".deldo","w+") as d:
+	
+	for item in lines:
+		lines2.add(item)
+	for item in lines2:
+		lines1.append(item)
+	lines1.sort()
+	for item in lines1:
+		d.write(item)

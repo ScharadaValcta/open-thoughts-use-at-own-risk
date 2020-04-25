@@ -1,0 +1,19 @@
+#!/bin/sh
+
+scp "$@" orthos:|| scp "$@" paris:|| scp "$@" pallas:|| scp "$@" pegasos:|| scp "$@" pandion:|| scp "$@" penelope:|| scp "$@" polyphem:|| scp "$@" polydora:|| scp "$@" priamos:|| scp "$@" pythia:|| scp "$@" phoenix:|| scp "$@" phylla:|| scp "$@" proteus:|| scp "$@" phobos:|| scp "$@" phoebe:|| scp "$@" eryx:|| scp "$@" eumolos:|| scp "$@" euros:|| scp "$@" eurotas:|| scp "$@" eurylos:|| scp "$@" eros:|| scp "$@" erebos:|| scp "$@" eos:|| scp "$@" eleusius:|| scp "$@" elektra:|| scp "$@" kadmos:|| scp "$@" kalypso:|| scp "$@" kretheus:|| scp "$@" kepheus:|| scp "$@" kirke:|| scp "$@" kratos:|| scp "$@" kreon:|| scp "$@" kalliste:|| scp "$@" kroton:|| scp "$@" klytios:|| scp "$@" aktor:|| scp "$@" adamas:|| scp "$@" ares:|| scp "$@" adonis:|| scp "$@" achilles:|| scp "$@" arabia:|| scp "$@" aurora:|| scp "$@" okeanos:|| scp "$@" opheltes:|| scp "$@" orion:|| scp "$@" orpheus:|| scp "$@" omphale:|| scp "$@" odysseus:
+
+echo 'EINS'
+ssh orthos "samlpr $@"|| ssh paris "samlpr $@"|| ssh pallas "samlpr $@"|| ssh pegasos "samlpr $@"|| ssh pandion "samlpr $@"|| ssh penelope "samlpr $@"|| ssh polyphem "samlpr $@"|| ssh polydora "samlpr $@"|| ssh priamos "samlpr $@"|| ssh pythia "samlpr $@"|| ssh phoenix "samlpr $@"|| ssh phylla "samlpr $@"|| ssh proteus "samlpr $@"|| ssh phobos "samlpr $@"|| ssh phoebe "samlpr $@"|| ssh eryx "samlpr $@"|| ssh eumolos "samlpr $@"|| ssh euros "samlpr $@"|| ssh eurotas "samlpr $@"|| ssh eurylos "samlpr $@"|| ssh eros "samlpr $@"|| ssh erebos "samlpr $@"|| ssh eos "samlpr $@"|| ssh eleusius "samlpr $@"|| ssh elektra "samlpr $@"|| ssh kadmos "samlpr $@"|| ssh kalypso "samlpr $@"|| ssh kretheus "samlpr $@"|| ssh kepheus "samlpr $@"|| ssh kirke "samlpr $@"|| ssh kratos "samlpr $@"|| ssh kreon "samlpr $@"|| ssh kalliste "samlpr $@"|| ssh kroton "samlpr $@"|| ssh klytios "samlpr $@"|| ssh aktor "samlpr $@"|| ssh adamas "samlpr $@"|| ssh ares "samlpr $@"|| ssh adonis "samlpr $@"|| ssh achilles "samlpr $@"|| ssh arabia "samlpr $@"|| ssh aurora "samlpr $@"|| ssh okeanos "samlpr $@"|| ssh opheltes "samlpr $@"|| ssh orion "samlpr $@"|| ssh orpheus "samlpr $@"|| ssh omphale "samlpr $@"|| ssh odysseus "samlpr $@"
+echo 'NULL'
+exit 0 
+
+#scp "$@" orthos:
+#for item in "$@" ;do
+#	echo "Es wird nun $item gedruckt"
+#	ssh orthos "/usr/bin/lpr" -T "FICKEN" "$item"
+#done
+#ssh orthos "/usr/bin/lpq"
+#ssh orthos "/opt/rbi/bin/lpquota"
+#ssh orthos "mv $@ PDF"
+#
+#exit 0

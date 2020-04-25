@@ -1,0 +1,3 @@
+#!/bin/bash
+cvlc --gain 2 --play-and-exit soundboard/$(ls soundboard | shuf -n 1)
+exit 0

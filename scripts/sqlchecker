@@ -1,0 +1,6 @@
+#!/bin/bash
+
+echo 'SQL-Checker wird gestartet'
+cd /home/mertins/Desktop/0.Module/DB1-Freitag/1Blatt-2018-11-16/
+java -jar SQLChecker-1.0.jar &
+exit 0 

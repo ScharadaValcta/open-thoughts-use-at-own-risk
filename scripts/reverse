@@ -1,0 +1,11 @@
+#!/usr/bin/python3
+import sys
+
+lines = []
+with open(sys.argv[1]) as f:
+	lines = f.readlines()
+
+with open(sys.argv[1]+".reverse","w+") as d:
+	lines.reverse()
+	for item in lines:
+		d.write(item)

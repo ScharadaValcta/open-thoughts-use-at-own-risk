@@ -1,0 +1,7 @@
+#!/bin/bash
+#$1 muss die Request Url sein
+#$2 muss das playbackTicket sein
+#$3 muss der Name sein den die Datei danach haben soll, mit Endung
+#Benutzung unidl <RequestURl> <playbackTicket> <sowiedasvideoheisensoll.mp4>
+wget "${1}?playbackTicket=${2}&site=video01.uni-frankfurt.de"
+mv $(ls | grep -i ${2}) ${3}

@@ -1,0 +1,7 @@
+#!/bin/sh
+
+for item in "$@" ;do
+	youtube-dl $item
+	echo "HOPE"
+done
+exit 0

@@ -1,0 +1,22 @@
+#!/bin/bash
+if test -z $(echo "$1")
+then 
+    echo "Using the pacman -Q"
+    pacman -Q > /tmp/paccache
+else
+    echo -n "Using the "
+    echo "$@" 
+    rm -rf /tmp/paccache
+    pacman -Q "$@" >> /tmp/paccache
+fi
+for pkg in $(awk '{print $1}' /tmp/paccache) ; do
+    #pacman -Qi $pkg | grep -i "Optional Deps   : None"
+    #test -n $NONE
+    if test -z "$(pacman -Qi $pkg | grep -i "Optional Deps   : None")" && test -z "$(pacman -Qi $pkg | grep -i "Optionale Abhängigkeiten : Nichts")" && test -n "$(pacman -Qi $pkg | tr -d "\r\n" | awk 'BEGIN{FS=" : "} {print $11}' | sed 's/                  /\r\n/g'| sed 's/Required By/ /g' | sed 's/None/ /g' | sed 's/Benötigt von/ /g' | sed 's/Nichts/ /g'  | grep -v installed | grep -v Installiert )"
+    then
+        echo "Optional Deps from $pkg are: "; 
+        pacman -Qi $pkg | tr -d "\r\n" | awk 'BEGIN{FS=" : "} {print $11}' | sed 's/                           /\r\n/g'| sed 's/                  /\r\n/g' | sed 's/Required By/ /g' | sed 's/None/ /g' | sed 's/Benötigt von/ /g' | sed 's/Nichts/ /g'  | grep -v installed | grep -v Installiert;
+        echo ""; 
+    fi
+done 
+#diff "$(pacman -Qi git | tr -d "\r\n" | awk 'BEGIN{FS=" : "} {print $11}' | sed 's/                  /\r\n/g'| sed 's/Required By/ /g' | sed 's/None/ /g' | grep -i installed)" "$(pacman -Qi git | tr -d "\r\n" | awk 'BEGIN{FS=" : "} {print $11}' | sed 's/                  /\r\n/g'| sed 's/Required By/ /g' | sed 's/None/ /g' )"

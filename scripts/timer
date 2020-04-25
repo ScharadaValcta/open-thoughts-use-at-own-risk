@@ -1,0 +1,9 @@
+#!/bin/bash
+sleep $1;
+while true
+do
+	espeak $2;
+	notify-send "Timer ist abgelaufen:" $2
+	sleep 1
+done
+exit 0

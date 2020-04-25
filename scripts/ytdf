@@ -1,0 +1,9 @@
+#!/bin/sh
+
+while read item
+do  
+   echo "START $item"
+   youtube-dl $item
+done < "$1"
+
+exit 0
