@@ -1,0 +1,3 @@
+#!/bin/bash
+grep -vE "^[a-z]{7}@[a-z.-]{2,64}" $1 | sort -u > out.txt
+grep -E "^[a-z]{7}@[a-z.-]{2,64}" $1 | awk 'BEGIN{FS="@"} {print "^[a-z]{7}@"$2}' | sort -u >> out.txt

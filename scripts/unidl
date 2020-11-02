@@ -5,3 +5,31 @@
 #Benutzung unidl <RequestURl> <playbackTicket> <sowiedasvideoheisensoll.mp4>
 wget "${1}?playbackTicket=${2}&site=video01.uni-frankfurt.de"
 mv $(ls | grep -i ${2}) ${3}
+
+#Was wir im Prinzip erreichen wollen, is: Wir wollen den direkten Link zu dem Videofile haben. 
+#Dieser besteht aus drei Teilen: 
+#(A) Dem Link auf dem Server, 
+#(B) dem playbackTicket und 
+#(C) dem Link zum Server selbst.
+#Hier ist der Weg dahin:
+#1. Das Video in Chrome öffnen, sodass es in einem neuen Tab gespielt wird.
+#1.1 Währenddessen die Developer Tools (Ctrl+Shift+I oder auf die drei Punkte in der Navigationsleiste --> More Tools --> Developer Tools)
+#1.1.1 In den Developer Tools rechts oben auf die drei Punkte --> Unlock into separate Window (linkes Icon bei Dock side) hilft (übersichtlicher)
+#2. Das Video kurz anspielen lassen (ein paar Sekunden reichen) und dann pausieren
+#3. In den DevTools: Auf den Reiter Network wechseln
+#4. Die Liste links nach Name sortieren.
+#5. Jetzt bauen wir den Link aus den Infos rechts. 
+#5.1.1 Eins der Fragments anklicken (ziemlich egal welches)
+#5.1.2 Die Request URL ist (A). Dort ist ein Filename auf ein MP4 file verzeichnet. Wir brauchen alles vor einschließlich dem filename (nicht mehr den / danach).
+#5.2.1 Als nächstes brauchen wir eines der ReportMediaView Elemente (links)
+#5.2.2 Auf der rechten Seite ganz unten ist der Abschnitt "Request Payload". Dort finden wir das playbackTicket (B). Dazu fügen wir an (A) ein "?playbackTicket=" an, gefolgt von der Variablen in den Anführungszeichen.
+#5.3.1 Im gleichen Element im Abschnitt darüber ("Request Headers") findet sich der Wert "authority". Dieser ist unser (C).
+#5.3.2 Um diesen anzufügen, schreiben wir ein "&site=", gefolgt von dem Wert für authority.
+#
+#Alternativ wenn es bei 4. ein Element namens manifest gibt: 
+#Einfach davon die Request URL kopieren und den Teil zwischen .mp4 und ?playbackTicket entfernen
+#
+#Damit haben wir den direkten Link zum Video, was man mit Rechtsklick --> Save video as... (oder Ctrl+S) speichern kann
+#
+#Sag Bescheid wenn was unverständlich is/nich funktioniert
+
