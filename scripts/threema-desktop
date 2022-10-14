@@ -1,0 +1,5 @@
+#!/bin/bash
+
+brave --user-data-dir=/4TB/programme/threema-deskstop --app=https://web.threema.ch/
+
+exit 0

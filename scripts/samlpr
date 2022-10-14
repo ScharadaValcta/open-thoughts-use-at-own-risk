@@ -1,0 +1,13 @@
+#!/bin/sh
+
+for item in "$@" ;do
+	echo "Es wird nun ""$item"" gedruckt"
+	lpr -T "Kaffee??" $item
+done
+lpq
+/opt/rbi/bin/lpquota
+mv $@ PDF
+
+exit 0
+
+

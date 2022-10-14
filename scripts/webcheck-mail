@@ -1,0 +1,44 @@
+#!/usr/bin/env sh
+
+URL=${1}
+INITIAL_HASH=$(curl -s "${URL}" | md5sum)
+
+while [ "${INITIAL_HASH}" = "$(curl -s "${URL}" | md5sum)" ]
+do
+    sleep 100
+done
+
+mail -s "Webcheck:Notify" "s7695334@stud.uni-frankfurt.de" << EOF
+$URL hat sich geändert
+EOF
+echo "done"
+
+#von dotKuro aka aKampf aka Al3x
+
+#/bin/bash
+#WEBSITE=$1
+#RUN=true
+#rm -rf /tmp/webcheck
+#mkdir /tmp/webcheck
+#cd /tmp/webcheck
+#wget $WEBSITE
+#OLDHASH="$(md5sum *)"
+#while $RUN
+#do
+#sleep 100
+#cd cd /tmp/webcheck
+#wget $WEBSITE
+#HASH="$(md5sum *)"
+#if "$OLDHASH" != "$HASH"
+#then
+#	notify-send "Website ""$WEBSITE"" hat sich geändert"
+#	RUN = false
+#fi
+#notify-send "Website "$WEBSITE" hat sich geändert"
+##cvlc ~/nice.mp3 ~/nice.mp3 ~/nice.mp3 ~/nice.mp3
+#done
+
+
+#for item in "$@"
+#do
+#done
